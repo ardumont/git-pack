@@ -7,7 +7,9 @@
 (install-packs '(magit
                  git-gutter))
 
+(require 'git-gutter)
 (require 'magit)
+
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
@@ -35,5 +37,6 @@
 (global-set-key (kbd "C-c g d") 'git-gutter:popup-diff)
 (global-set-key (kbd "C-c g r") 'git-gutter:revert-hunk)
 
+(global-git-gutter-mode)
 
 ;;; git-pack ends here
