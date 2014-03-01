@@ -4,6 +4,12 @@
 
 ;;; Code:
 
+(install-packs '(magit))
+
+(require 'magit)
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; full screen magit-status
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
