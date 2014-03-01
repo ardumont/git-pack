@@ -1,3 +1,9 @@
+;;; git-pack.el --- Git configuration
+
+;;; Commentary:
+
+;;; Code:
+
 ;; full screen magit-status
 
 (defadvice magit-status (around magit-fullscreen activate)
@@ -13,3 +19,5 @@
 
 (eval-after-load "magit"
   '(define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
+
+;;; git-pack ends here
