@@ -4,7 +4,8 @@
 
 ;;; Code:
 
-(install-packs '(magit))
+(install-packs '(magit
+                 git-gutter))
 
 (require 'magit)
 ;; Magit
@@ -24,5 +25,15 @@
 
 (eval-after-load "magit"
   '(define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
+
+;; Git Gutter
+(global-set-key (kbd "C-c g g") 'git-gutter:toggle)
+
+;; Jump to next/previous diff
+(global-set-key (kbd "C-c g p") 'git-gutter:previous-diff)
+(global-set-key (kbd "C-c g n") 'git-gutter:next-diff)
+(global-set-key (kbd "C-c g d") 'git-gutter:popup-diff)
+(global-set-key (kbd "C-c g r") 'git-gutter:revert-hunk)
+
 
 ;;; git-pack ends here
