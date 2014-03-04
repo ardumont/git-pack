@@ -7,7 +7,8 @@
 (install-packs '(magit
                  git-gutter))
 
-(require 'git-gutter)
+;; magit
+
 (require 'magit)
 
 ;; full screen magit-status
@@ -24,6 +25,10 @@
 
 (eval-after-load "magit"
   '(define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
+
+;; git-pack
+
+(require 'git-gutter)
 
 (defvar git-pack-mode-map
   (let ((map (make-sparse-keymap)))
