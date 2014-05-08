@@ -4,6 +4,7 @@
 
 ;;; Code:
 
+(require 'install-packages-pack)
 (install-packs '(magit
                  git-gutter))
 
@@ -58,4 +59,5 @@
 
 (global-git-pack-mode)
 
+(provide 'git-pack)
 ;;; git-pack ends here
