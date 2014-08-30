@@ -43,8 +43,18 @@
 
 (add-hook 'prog-mode-hook 'git-gutter-mode)
 
+(custom-set-variables
+ '(git-gutter:modified-sign " ") ;; two space
+ '(git-gutter:added-sign "+")    ;; multiple character is OK
+ '(git-gutter:deleted-sign "-")
+ '(git-gutter:lighter " GG")
+ '(git-gutter:disabled-modes '(org-mode)))
+
+(set-face-background 'git-gutter:modified "blue") ;; background color
+(set-face-foreground 'git-gutter:added "green")
+(set-face-foreground 'git-gutter:deleted "red")
+
 (define-minor-mode git-pack-mode
-    (define-key map (kbd "C-c g s") 'git-gutter:stage-hunk)
   "Minor mode to consolidate git-pack extensions.
 
 \\{git-pack-mode-map}"
