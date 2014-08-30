@@ -41,7 +41,7 @@
     map)
   "Keymap for git-pack mode.")
 
-(global-git-gutter-mode)
+(add-hook 'prog-mode-hook 'git-gutter-mode)
 
 (define-minor-mode git-pack-mode
     (define-key map (kbd "C-c g s") 'git-gutter:stage-hunk)
