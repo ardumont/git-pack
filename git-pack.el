@@ -32,7 +32,7 @@
 
 (defvar git-pack-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c g s") 'magit-status)
+    (define-key map (kbd "C-c g s") 'git-gutter:stage-hunk)
     (define-key map (kbd "C-c g g") 'git-gutter:toggle)
     (define-key map (kbd "C-c g p") 'git-gutter:previous-diff)
     (define-key map (kbd "C-c g n") 'git-gutter:next-diff)
@@ -44,6 +44,7 @@
 (global-git-gutter-mode)
 
 (define-minor-mode git-pack-mode
+    (define-key map (kbd "C-c g s") 'git-gutter:stage-hunk)
   "Minor mode to consolidate git-pack extensions.
 
 \\{git-pack-mode-map}"
