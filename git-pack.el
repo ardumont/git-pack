@@ -5,8 +5,8 @@
 ;;; Code:
 
 (require 'install-packages-pack)
-(install-packs '(magit
-                 git-gutter))
+(install-packages-pack/install-packs '(magit
+                                       git-gutter))
 
 ;; magit
 
