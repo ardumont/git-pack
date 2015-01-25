@@ -6,25 +6,18 @@
 
 (require 'install-packages-pack)
 (install-packages-pack/install-packs '(magit
-                                       git-gutter))
+                                       git-gutter
+                                       fullframe))
 
 ;; magit
 
 (require 'magit)
+(require 'fullframe)
 
-(defadvice magit-status (around magit-fullscreen activate)
-  "Keep the actual window disposition."
-  (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
-  (delete-other-windows))
-
-(defun magit-quit-session ()
-  "Restore the previous window configuration and kill the magit buffer."
-  (interactive)
-  (kill-buffer)
-  (jump-to-register :magit-fullscreen))
-
-(eval-after-load "magit" '(define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
+(eval-after-load 'magit
+  '(progn
+     (fullframe magit-status magit-mode-quit-window)
+     (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)))
 
 ;; git-pack
 
