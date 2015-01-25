@@ -16,8 +16,7 @@
 
 (eval-after-load 'magit
   '(progn
-     (fullframe magit-status magit-mode-quit-window)
-     (define-key magit-status-mode-map (kbd "q") 'magit-mode-quit-window)))
+     (fullframe magit-status magit-mode-quit-window)))
 
 ;; git-pack
 
