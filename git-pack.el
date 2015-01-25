@@ -15,8 +15,7 @@
 (require 'fullframe)
 
 (eval-after-load 'magit
-  '(progn
-     (fullframe magit-status magit-mode-quit-window)))
+  '(fullframe magit-status magit-mode-quit-window))
 
 ;; git-pack
 
