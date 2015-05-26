@@ -5,8 +5,11 @@
 ;;; Code:
 
 (require 'install-packages-pack)
-(install-packages-pack/install-packs '(magit
-                                       git-gutter
+
+(unless (require 'magit nil 'no-error) ;; for emacs-live
+  (install-packages-pack/install-pack 'magit))
+
+(install-packages-pack/install-packs '(git-gutter
                                        fullframe))
 
 ;; magit
