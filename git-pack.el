@@ -4,25 +4,32 @@
 
 ;;; Code:
 
-(require 'install-packages-pack)
+(use-package fullframe)
 
-(unless (require 'magit nil 'no-error) ;; for emacs-live
-  (install-packages-pack/install-pack 'magit))
-
-(install-packages-pack/install-packs '(git-gutter
-                                       fullframe))
-
-;; magit
-
-(require 'magit)
-(require 'fullframe)
-
-(eval-after-load 'magit
-  '(fullframe magit-status magit-mode-quit-window 'kill-on-quit))
+(use-package magit
+  :no-require t  ;; to evaluate this when magit is loaded!
+  :config (progn
+            (custom-set-variables '(magit-auto-revert-mode nil)
+                                  '(magit-last-seen-setup-instructions "1.4.0"))
+            (require 'fullframe)
+            (fullframe magit-status magit-mode-quit-window 'kill-on-quit)))
 
 ;; git-pack
 
-(require 'git-gutter)
+(use-package git-gutter
+  :init
+  (add-hook 'prog-mode-hook 'git-gutter-mode)
+
+  (custom-set-variables
+   '(git-gutter:modified-sign " ") ;; two space
+   '(git-gutter:added-sign "+")    ;; multiple character is OK
+   '(git-gutter:deleted-sign "-")
+   '(git-gutter:lighter " GG")
+   '(git-gutter:disabled-modes '(org-mode)))
+
+  (set-face-background 'git-gutter:modified "blue") ;; background color
+  (set-face-foreground 'git-gutter:added "green")
+  (set-face-foreground 'git-gutter:deleted "red"))
 
 (defvar git-pack-mode-map
   (let ((map (make-sparse-keymap)))
@@ -34,19 +41,6 @@
     (define-key map (kbd "C-c g r") 'git-gutter:revert-hunk)
     map)
   "Keymap for git-pack mode.")
-
-(add-hook 'prog-mode-hook 'git-gutter-mode)
-
-(custom-set-variables
- '(git-gutter:modified-sign " ") ;; two space
- '(git-gutter:added-sign "+")    ;; multiple character is OK
- '(git-gutter:deleted-sign "-")
- '(git-gutter:lighter " GG")
- '(git-gutter:disabled-modes '(org-mode)))
-
-(set-face-background 'git-gutter:modified "blue") ;; background color
-(set-face-foreground 'git-gutter:added "green")
-(set-face-foreground 'git-gutter:deleted "red")
 
 (define-minor-mode git-pack-mode
   "Minor mode to consolidate git-pack extensions.
