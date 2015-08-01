@@ -46,7 +46,7 @@
   "Minor mode to consolidate git-pack extensions.
 
 \\{git-pack-mode-map}"
-  :lighter " GP"
+  :lighter " γ"
   :keymap git-pack-mode-map)
 
 (define-globalized-minor-mode global-git-pack-mode git-pack-mode git-pack-on)
