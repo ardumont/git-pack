@@ -7,14 +7,15 @@
 (use-package fullframe)
 
 (use-package magit
-  :no-require t  ;; to evaluate this when magit is loaded!
-  :config (progn
-            (custom-set-variables '(magit-auto-revert-mode nil)
-                                  '(magit-last-seen-setup-instructions "1.4.0"))
-            (require 'fullframe)
-            (fullframe magit-status magit-mode-quit-window 'kill-on-quit)))
-
-;; git-pack
+  :config
+  (custom-set-variables '(magit-auto-revert-mode nil)
+                        '(magit-last-seen-setup-instructions "1.4.0"))
+  (use-package fullframe
+    :config
+    (fullframe magit-status magit-mode-quit-window 'kill-on-quit))
+  (use-package magit-gh-pulls
+    :config
+    (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)))
 
 (use-package git-gutter
   :init
