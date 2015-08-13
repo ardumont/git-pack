@@ -9,7 +9,9 @@
 (use-package magit
   :config
   (custom-set-variables '(magit-auto-revert-mode nil)
-                        '(magit-last-seen-setup-instructions "1.4.0"))
+                        '(magit-last-seen-setup-instructions "1.4.0")
+                        '(magit-push-always-verify "PP"))
+
   (use-package fullframe
     :config
     (fullframe magit-status magit-mode-quit-window 'kill-on-quit))
