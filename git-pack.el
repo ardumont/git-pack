@@ -14,10 +14,7 @@
 
   (use-package fullframe
     :config
-    (fullframe magit-status magit-mode-quit-window 'kill-on-quit))
-  (use-package magit-gh-pulls
-    :config
-    (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)))
+    (fullframe magit-status magit-mode-quit-window 'kill-on-quit)))
 
 (use-package git-gutter
   :init
