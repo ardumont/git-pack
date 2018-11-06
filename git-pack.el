@@ -9,6 +9,9 @@
 		      '(magit-last-seen-setup-instructions "1.4.0")
 		      '(magit-push-always-verify "PP"))
 
+(define-key magit-mode-map (kbd "C-n") 'magit-section-forward)
+(define-key magit-mode-map (kbd "C-p") 'magit-section-backward)
+
 (require 'fullframe)
 (fullframe magit-status magit-mode-quit-window 'kill-on-quit)
 
