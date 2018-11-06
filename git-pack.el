@@ -4,32 +4,27 @@
 
 ;;; Code:
 
-(use-package fullframe)
+(require 'magit)
+(custom-set-variables '(magit-auto-revert-mode nil)
+		      '(magit-last-seen-setup-instructions "1.4.0")
+		      '(magit-push-always-verify "PP"))
 
-(use-package magit
-  :config
-  (custom-set-variables '(magit-auto-revert-mode nil)
-                        '(magit-last-seen-setup-instructions "1.4.0")
-                        '(magit-push-always-verify "PP"))
+(require 'fullframe)
+(fullframe magit-status magit-mode-quit-window 'kill-on-quit)))
 
-  (use-package fullframe
-    :config
-    (fullframe magit-status magit-mode-quit-window 'kill-on-quit)))
+(require 'git-gutter)
+(add-hook 'prog-mode-hook 'git-gutter-mode)
 
-(use-package git-gutter
-  :init
-  (add-hook 'prog-mode-hook 'git-gutter-mode)
+(custom-set-variables
+ '(git-gutter:modified-sign " ") ;; two space
+ '(git-gutter:added-sign "+")    ;; multiple character is OK
+ '(git-gutter:deleted-sign "-")
+ '(git-gutter:lighter " GG")
+ '(git-gutter:disabled-modes '(org-mode)))
 
-  (custom-set-variables
-   '(git-gutter:modified-sign " ") ;; two space
-   '(git-gutter:added-sign "+")    ;; multiple character is OK
-   '(git-gutter:deleted-sign "-")
-   '(git-gutter:lighter " GG")
-   '(git-gutter:disabled-modes '(org-mode)))
-
-  (set-face-background 'git-gutter:modified "blue") ;; background color
-  (set-face-foreground 'git-gutter:added "green")
-  (set-face-foreground 'git-gutter:deleted "red"))
+(set-face-background 'git-gutter:modified "blue") ;; background color
+(set-face-foreground 'git-gutter:added "green")
+(set-face-foreground 'git-gutter:deleted "red")
 
 (defvar git-pack-mode-map
   (let ((map (make-sparse-keymap)))
