@@ -10,7 +10,7 @@
 		      '(magit-push-always-verify "PP"))
 
 (require 'fullframe)
-(fullframe magit-status magit-mode-quit-window 'kill-on-quit)))
+(fullframe magit-status magit-mode-quit-window 'kill-on-quit)
 
 (require 'git-gutter)
 (add-hook 'prog-mode-hook 'git-gutter-mode)
