@@ -8,6 +8,8 @@
 (custom-set-variables '(magit-auto-revert-mode nil))
 
 (require 'magit-extras) ;; C-n/C-p
+(define-key magit-mode-map (kbd "C-n") 'next-line)
+(define-key magit-mode-map (kbd "C-p") 'previous-line)
 
 (require 'fullframe)
 (fullframe magit-status magit-mode-quit-window 'kill-on-quit)
