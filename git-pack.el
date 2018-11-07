@@ -5,9 +5,7 @@
 ;;; Code:
 
 (require 'magit)
-(custom-set-variables '(magit-auto-revert-mode nil)
-		      '(magit-last-seen-setup-instructions "1.4.0")
-		      '(magit-push-always-verify "PP"))
+(custom-set-variables '(magit-auto-revert-mode nil))
 
 (define-key magit-mode-map (kbd "C-n") 'magit-section-forward)
 (define-key magit-mode-map (kbd "C-p") 'magit-section-backward)
