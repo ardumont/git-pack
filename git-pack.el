@@ -7,8 +7,7 @@
 (require 'magit)
 (custom-set-variables '(magit-auto-revert-mode nil))
 
-(define-key magit-mode-map (kbd "C-n") 'magit-section-forward)
-(define-key magit-mode-map (kbd "C-p") 'magit-section-backward)
+(require 'magit-extras) ;; C-n/C-p
 
 (require 'fullframe)
 (fullframe magit-status magit-mode-quit-window 'kill-on-quit)
