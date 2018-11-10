@@ -52,7 +52,5 @@
   "Turn on `git-pack-mode'."
   (git-pack-mode +1))
 
-(global-git-pack-mode)
-
 (provide 'git-pack)
 ;;; git-pack ends here
