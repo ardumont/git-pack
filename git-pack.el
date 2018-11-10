@@ -27,16 +27,19 @@
 (set-face-foreground 'git-gutter:added "green")
 (set-face-foreground 'git-gutter:deleted "red")
 
-(defvar git-pack-mode-map
-  (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c g s") 'git-gutter:stage-hunk)
-    (define-key map (kbd "C-c g g") 'git-gutter:toggle)
-    (define-key map (kbd "C-c g p") 'git-gutter:previous-hunk)
-    (define-key map (kbd "C-c g n") 'git-gutter:next-hunk)
-    (define-key map (kbd "C-c g d") 'git-gutter:popup-hunk)
-    (define-key map (kbd "C-c g r") 'git-gutter:revert-hunk)
-    map)
-  "Keymap for git-pack mode.")
+(defvar git-pack-mode-map nil "Keymap for git-pack mode.")
+;; Initialized empty to ease update later on
+(setq git-pack-mode-map
+      (let ((map (make-sparse-keymap)))
+	(define-key map (kbd "C-c d s") 'git-gutter:stage-hunk)
+	(define-key map (kbd "C-c d t") 'git-gutter:toggle)
+	(define-key map (kbd "C-c d p") 'git-gutter:previous-hunk)
+	(define-key map (kbd "C-c d n") 'git-gutter:next-hunk)
+	(define-key map (kbd "C-c d d") 'git-gutter:popup-hunk)
+	(define-key map (kbd "C-c d r") 'git-gutter:revert-hunk)
+	(define-key map (kbd "C-c d g") 'magit-status)
+	(define-key map (kbd "C-c g")   'magit-status)
+	map))
 
 (define-minor-mode git-pack-mode
   "Minor mode to consolidate git-pack extensions.
