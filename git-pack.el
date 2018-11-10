@@ -14,6 +14,7 @@
 
 (require 'git-gutter)
 (add-hook 'prog-mode-hook 'git-gutter-mode)
+(add-hook 'dired-mode-hook 'magit-mode)
 
 (custom-set-variables
  '(custom-set-variables '(magit-auto-revert-mode nil))
