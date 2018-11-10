@@ -44,7 +44,8 @@
 
 \\{git-pack-mode-map}"
   :lighter " γ"
-  :keymap git-pack-mode-map)
+  :keymap git-pack-mode-map
+  :global t)
 
 (define-globalized-minor-mode global-git-pack-mode git-pack-mode git-pack-on)
 
