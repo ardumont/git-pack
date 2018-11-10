@@ -5,8 +5,6 @@
 ;;; Code:
 
 (require 'magit)
-(custom-set-variables '(magit-auto-revert-mode nil))
-
 (require 'magit-extras) ;; C-n/C-p
 (define-key magit-mode-map (kbd "C-n") 'next-line)
 (define-key magit-mode-map (kbd "C-p") 'previous-line)
@@ -18,6 +16,7 @@
 (add-hook 'prog-mode-hook 'git-gutter-mode)
 
 (custom-set-variables
+ '(custom-set-variables '(magit-auto-revert-mode nil))
  '(git-gutter:modified-sign " ") ;; two space
  '(git-gutter:added-sign "+")    ;; multiple character is OK
  '(git-gutter:deleted-sign "-")
